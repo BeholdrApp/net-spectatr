@@ -40,4 +40,4 @@ the [Beholdr roadmap](https://github.com/BeholdrApp/Beholdr/blob/main/ROADMAP.md
 
 ## License
 
-All rights reserved. See [LICENSE](LICENSE).
+Released under the [MIT License](LICENSE).
