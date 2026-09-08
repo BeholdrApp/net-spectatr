@@ -1,0 +1,30 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+*.user
+*.suo
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Test results
+[Tt]est[Rr]esult*/
+coverage*.xml
+*.coverage
+
+# Local config and secrets
+appsettings.Local.json
+.env
+
+# Editors
+.vs/
+.idea/
+.vscode/
+*.swp
+.DS_Store
