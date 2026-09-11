@@ -33,10 +33,27 @@ compliant instrumentation — is a first-class citizen.
 `net-spectatr` is a convenience, not a dependency. That is the point: adding a
 new language to a Beholdr deployment must not require writing a new agent.
 
-## Status
+## Use the preview
 
-Early. See the [issues](https://github.com/BeholdrApp/net-spectatr/issues) and
-the [Beholdr roadmap](https://github.com/BeholdrApp/Beholdr/blob/main/ROADMAP.md).
+```csharp
+using NetSpectatr;
+builder.Services.AddNetSpectatr();
+```
+
+The package targets .NET 8 and .NET 10, with upstream ASP.NET Core, HttpClient,
+SqlClient and runtime instrumentation, plus opt-in EF Core support. Standard
+OTEL environment variables configure export and resource identity. Root
+sampling defaults to 10%; exception details are opt-in.
+
+```sh
+dotnet test -c Release
+dotnet pack src/NetSpectatr -c Release -o out/packages
+```
+
+See [configuration and support](docs/configuration.md) and the complete
+[Beholdr agents demo](https://github.com/BeholdrApp/Beholdr/blob/main/docs/agents-demo.md).
+The NuGet preview is built locally and in CI; public publishing/signing remain
+future release work. `samples/StockOtelApi` proves the receiver needs no package.
 
 ## License
 
