@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/DemoApi/DemoApi.csproj" />
+    <Project Path="samples/StockOtelApi/StockOtelApi.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/NetSpectatr/NetSpectatr.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/NetSpectatr.Tests/NetSpectatr.Tests.csproj" />
+  </Folder>
+</Solution>

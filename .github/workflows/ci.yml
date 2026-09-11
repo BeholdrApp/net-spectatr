@@ -1,0 +1,27 @@
+name: CI
+on: [pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  dotnet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-dotnet@bbbb8c9ab609f9ab643834ffe948a0f577bc4c0c
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.400
+      - run: dotnet restore --locked-mode -p:NuGetAuditMode=all
+      - run: dotnet build -c Release --no-restore
+      - run: dotnet test -c Release --no-build --logger trx
+      - run: dotnet pack src/NetSpectatr -c Release --no-build -o out/packages
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: nuget-preview
+          path: out/packages/*
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: tests
+          path: '**/TestResults/*.trx'
